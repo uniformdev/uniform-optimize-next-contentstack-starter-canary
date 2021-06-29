@@ -1,0 +1,22 @@
+[build]
+  command = 'npm run ci:build'
+  publish = 'out'
+
+[template]
+  incoming-hooks = ["Uniform"]
+
+[template.environment]
+  CONTENTSTACK_STACK_API_KEY = 'Contentstack Stack API Key'
+  CONTENTSTACK_ENVIRONMENT = 'Contentstack Environment'
+  CONTENTSTACK_DELIVERY_TOKEN = 'Contentstack Delivery Token'
+  CONTENTSTACK_REGION = 'Contentstack Region (optional, defaults to NA (North America)'
+  UNIFORM_API_KEY='Uniform Optimize API Key'
+  GA_UA_ID='Google Analytics ID (optional)'
+
+# Stores the next cache between builds for faster build time
+[[plugins]]
+  package = "netlify-plugin-cache-nextjs"
+
+
+[build.environment]
+  UNIFORM_CLI_BASE_URL='https://uniformapp-dev.s3.amazonaws.com/optimize/'
